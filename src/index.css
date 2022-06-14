@@ -1,12 +1,13 @@
 .App {
   text-align: center;
-  display: grid;
-  grid-template-columns: 100%;
+
+
+  /* grid-template-columns: 100%;
   grid-template-rows: min-content auto auto;
   grid-template-areas:
     "header"
     "nav"
-    "content";
+    "content"; */
 }
 
 /* @media only screen and (min-width: 600px) {
@@ -26,6 +27,7 @@ body {
 }
 
 .header {
+ 
   border: solid 5px red;
   padding: 1rem;
 }
@@ -43,13 +45,15 @@ body {
 
 .nav-list li {
   background-color: rgb(125, 158, 186);
-  border-radius: 1px;
-  font-size: 18px;
-  padding: 10px;
+  
+  font-size: 10px;
+  padding: 5px;
   border-radius: 8px;
 }
 
 .allReviews {
+  display: flex;
+  flex-direction: column;
   border: solid 5px yellow;
   padding: 1rem;
   list-style: none;

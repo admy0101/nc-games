@@ -7,7 +7,9 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+
     getReviews(category).then((response) => {
+
       setReviews(response);
     });
   }, [category]);
