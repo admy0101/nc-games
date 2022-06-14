@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { getReviews } from "../utils/api";
+import {useParams} from "react-router-dom"
 
 const Reviews = () => {
+  const {category} = useParams();
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    getReviews().then((response) => {
+    getReviews(category).then((response) => {
       setReviews(response);
     });
-  }, []);
+  }, [category]);
 
   return (
     <div>

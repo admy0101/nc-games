@@ -1,6 +1,7 @@
 import React from "react";
 import Categories from "./Categories";
 import Home from "./Home";
+import SignIn from "./Sign-in";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
       <ul className="nav-list">
         <Home />
         <Categories />
-        <li>Sign in</li>
+        <SignIn />
       </ul>
     </nav>
   );

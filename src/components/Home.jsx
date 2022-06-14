@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="home-btn">
-      <button></button>
+    <div >
       <Link className="link-cat" to="/">
-        Home
+        <button className="home-btn">Home</button>
       </Link>
     </div>
   );

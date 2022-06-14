@@ -1,35 +1,39 @@
 import React from "react";
+import { getCategories } from "../utils/api";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 
 const Categories = () => {
+  const { category } = useParams();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories(category).then((response) => {
+      setCategories(response)
+    });
+  }, [category]);
+
   return (
     <div className="dropdown">
-      <button className="cat-btn">Categories</button>
+      <button className="cat-btn">Categories ▽</button>
       <div className="dropdown-content">
-        <Link className="link-cat" to="/reviews/strategy">
-          Strategy
-        </Link>
-        <Link className="link-cat" to="/reviews/hidden-roles">
-          Hidden-roles
-        </Link>
-        <Link className="link-cat" to="/reviews/dexterity">
-          Dexterity
-        </Link>
-        <Link className="link-cat" to="/reviews/push-your-luck">
-          Push-your-luck
-        </Link>
-        <Link className="link-cat" to="/reviews/roll-and-write">
-          Roll-and-Write
-        </Link>
-        <Link className="link-cat" to="/reviews/deck-building">
-          Deck-building
-        </Link>
-        <Link className="link-cat" to="/reviews/engine-building">
-          Engine-building
-        </Link>
+        {categories.map((category) => {
+          return (
+            <Link
+              className="link-cat"
+              key={category.slug}
+              to={`/categories/${category.slug}`}
+            >
+              {category.slug}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
 };
 
 export default Categories;
+

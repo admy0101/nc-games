@@ -12,6 +12,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Reviews />} />
+          <Route path="/categories/:category" element={<Reviews />} />
         </Routes>
       </div>
     </BrowserRouter>
