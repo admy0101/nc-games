@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar";
 import Reviews from "./components/Reviews";
 
 function App() {
-  console.log("rendering app");
   return (
     <BrowserRouter>
       <div className="App">
