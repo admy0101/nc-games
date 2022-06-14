@@ -1,11 +1,7 @@
 import React from "react";
 
 const SignIn = () => {
-  return (
-    <div>
-      <button className="sign-btn">Sign in</button>
-    </div>
-  );
+  return <div className="link-btn">Sign-in</div>;
 };
 
 export default SignIn;

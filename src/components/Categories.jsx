@@ -16,8 +16,9 @@ const Categories = () => {
   }, [category]);
 
   return (
-    <div className="dropdown">
-      <button className="cat-btn">Categories ▽</button>
+    <div className="dropdown link-btn">
+        <p>Categories </p>
+      {/* <button className="cat-btn">Categories ▽</button> */}
       <div className="dropdown-content">
         {categories.map((category) => {
           return (

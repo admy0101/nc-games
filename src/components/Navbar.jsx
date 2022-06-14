@@ -5,7 +5,7 @@ import SignIn from "./Sign-in";
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar" >
       <ul className="nav-list">
         <Home />
         <Categories />
