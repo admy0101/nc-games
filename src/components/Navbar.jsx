@@ -1,16 +1,18 @@
-import React from 'react';
+import React from "react";
+import Categories from "./Categories";
+import Home from "./Home";
+import SignIn from "./Sign-in";
 
 const Navbar = () => {
-    return (
-        <nav className='navbar'>
-           <ul className='nav-list'>
-               <li>Home</li>
-               <li>Categories</li>
-               <li>Reviews</li>
-               <li>Sign in</li>
-           </ul>
-        </nav>
-    );
+  return (
+    <nav className="navbar">
+      <ul className="nav-list">
+        <Home />
+        <Categories />
+        <SignIn />
+      </ul>
+    </nav>
+  );
 };
 
 export default Navbar;
