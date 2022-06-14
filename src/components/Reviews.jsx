@@ -21,7 +21,6 @@ const Reviews = () => {
 
   useEffect(() => {
     getReviews().then((response) => {
-      console.log(response);
       setReviews(response);
     });
   }, []);
