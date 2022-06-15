@@ -11,14 +11,13 @@ const Categories = () => {
 
   useEffect(() => {
     getCategories(category).then((response) => {
-      setCategories(response)
+      setCategories(response);
     });
   }, [category]);
 
   return (
     <div className="dropdown link-btn">
-        <p>Categories </p>
-      {/* <button className="cat-btn">Categories ▽</button> */}
+      Categories
       <div className="dropdown-content">
         {categories.map((category) => {
           return (
@@ -37,4 +36,3 @@ const Categories = () => {
 };
 
 export default Categories;
-
