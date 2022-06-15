@@ -8,14 +8,24 @@ const ReviewCard = () => {
   const { review_id } = useParams();
   const [singleReview, setSingleReview] = useState({});
 
+  const [isError, setError] = useState(null);
+
   useEffect(() => {
-    getSingleReview(review_id).then((data) => {
-      setSingleReview(data);
-    });
+    getSingleReview(review_id)
+      .then((data) => {
+        console.log("this is a review request");
+        setSingleReview(data);
+      })
+      .catch((err) => {
+        setError(err.response.data);
+      });
   }, [review_id]);
 
+  if (isError) {
+    return <p className="error">Oh no! Error!</p>;
+  }
+
   return (
-    
     <>
       <div className="single-review" key={singleReview.review_id}>
         <h2>{singleReview.title}</h2>
