@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #edc7b7;
+  background-color: #f7a8e3;
 
   /* grid-template-columns: 100%;
   grid-template-rows: min-content auto auto;
@@ -30,6 +30,14 @@ body {
   padding: 1rem;
   font-size: 1.5rem;
 }
+.header h1 {
+  display: none;
+}
+.header img {
+  height: 15vw;
+  width: 100%;
+  object-fit: cover;
+}
 
 .navbar {
   padding: 1rem;
@@ -54,10 +62,12 @@ body {
 
 .nav-list :visited {
   text-decoration: none;
+  color: black;
 }
 
 .nav-list :hover {
   text-decoration: none;
+  color: white;
 }
 
 .nav-list :active {
@@ -83,6 +93,7 @@ body {
   justify-content: center;
   align-content: center;
   cursor: pointer;
+  
 }
 
 img {
@@ -109,8 +120,9 @@ img {
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   background: linear-gradient(to bottom right, #eecda3, #ef629f);
-  opacity: 90%;
-  left: -35px;
+  opacity: 100%;
+  left: -45px;
+  margin: 23px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -123,9 +135,31 @@ img {
   padding: 5px;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.link-cat:hover {
+  background: purple;
+  opacity: 50%;
+  color: white;
 }
 
 .link-btn {
   text-transform: capitalize;
   transition: all 0.2s ease-in-out;
+}
+
+.review-cat-title {
+}
+
+.single-review {
+  width: 80%;
+  background: linear-gradient(to bottom right, #eecda3, #ef629f);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px 20px;
+  margin: 15px;
+  justify-content: center;
+  align-content: center;
 }
