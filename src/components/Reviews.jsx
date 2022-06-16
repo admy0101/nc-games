@@ -6,13 +6,18 @@ import { Link } from "react-router-dom";
 const Reviews = () => {
   const { category } = useParams();
   const [reviews, setReviews] = useState([]);
-  
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getReviews(category).then((response) => {
       setReviews(response);
+      setLoading(false);
     });
   }, [category]);
+
+  if (loading) {
+    return <div className="loading"></div>;
+  }
 
   return (
     <div>
@@ -22,12 +27,16 @@ const Reviews = () => {
       <ul className="allReviews">
         {reviews.map((review) => {
           return (
-            <Link className='reviewCard' to={`/reviews/${review.review_id}`} key={review.review_id}>
-            <li className="reviewsList" key={review.review_id}>
-              <h3>{review.title}</h3>
-              <img src={review.review_img_url} alt={review.title} />
-              <h2>Votes: {review.votes}</h2>
-            </li>
+            <Link
+              className="reviewCard"
+              to={`/reviews/${review.review_id}`}
+              key={review.review_id}
+            >
+              <li className="reviewsList" key={review.review_id}>
+                <h3>{review.title}</h3>
+                <img src={review.review_img_url} alt={review.title} />
+                <h2>Votes: {review.votes}</h2>
+              </li>
             </Link>
           );
         })}

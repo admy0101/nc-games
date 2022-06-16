@@ -42,7 +42,7 @@ body {
 .navbar {
   padding: 1rem;
   text-decoration: none;
-  color: green;
+  background-color: #ffccff;
 }
 
 .nav-list {
@@ -93,7 +93,6 @@ body {
   justify-content: center;
   align-content: center;
   cursor: pointer;
-  
 }
 
 img {
@@ -162,4 +161,94 @@ img {
   margin: 15px;
   justify-content: center;
   align-content: center;
+}
+
+.vote-btn {
+  margin: 5px;
+}
+
+.upvote {
+  background-color: #9cf1bb;
+  border-radius: 100px;
+
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.upvote:hover {
+  transform: scale(1.3) rotate(-1deg);
+}
+
+.upvote:disabled {
+  transform: scale(1) rotate(0deg);
+}
+
+.downvote {
+  background-color: #f9a694;
+  border-radius: 100px;
+  color: red;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.downvote:hover {
+  transform: scale(1.3) rotate(-1deg);
+}
+.downvote:disabled {
+  transform: scale(1) rotate(0deg);
+}
+
+.loading {
+  width: 40px;
+  height: 26px;
+  --c: linear-gradient(currentColor 0 0);
+  background: var(--c) 0 100%, var(--c) 50% 100%, var(--c) 100% 100%;
+  background-size: 8px calc(100% - 4px);
+  background-repeat: no-repeat;
+  position: relative;
+}
+.loading:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  left: 0;
+  top: 0;
+  animation: db3-1 1.5s linear infinite alternate,
+    db3-2 0.75s cubic-bezier(0, 200, 0.8, 200) infinite;
+}
+
+@keyframes db3-1 {
+  100% {
+    left: calc(100% - 8px);
+  }
+}
+
+@keyframes db3-2 {
+  100% {
+    top: -0.1px;
+  }
 }
