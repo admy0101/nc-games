@@ -51,7 +51,7 @@ const Comments = ({ singleReview }) => {
             </ul>
           </>
         ) : null}
-        <AddComment />
+        <AddComment singleReview={singleReview} />
       </div>
     </>
   );

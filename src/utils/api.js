@@ -35,7 +35,15 @@ export const increaseDecreaseVotes = (review_id, inc_votes) => {
 };
 
 export const getReviewComments = (review_id) => {
-  return reviewsApi.get(`/reviews/${review_id}/comments`).then(( {data} ) => {
+  return reviewsApi.get(`/reviews/${review_id}/comments`).then(({ data }) => {
     return data.comments;
   });
+};
+
+export const postReviewComment = (review_id, body) => {
+  return reviewsApi
+    .post(`/reviews/${review_id}/comments`, body)
+    .then(({ data }) => {
+      return data;
+    });
 };

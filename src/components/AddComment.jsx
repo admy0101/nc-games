@@ -1,7 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
+import { postReviewComment } from '../utils/api';
 
-const AddComment = () => {
+const AddComment = ({singleReview}) => {
+const [text, setText] = useState("")
 const [addComment, setAddComment] = useState(false)
 
 const addCommentButton = () => {
@@ -10,17 +12,26 @@ const addCommentButton = () => {
         
     } if(addComment === true) {
         setAddComment(false)
-    } console.log(addComment)   
+    }  
 }
+
+const onSubmit =(event) => {
+   
+
+    event.preventDefault()
+    postReviewComment(singleReview.review_id, {username: "tickle122", body: text} ) 
+}
+
 
     return (
         <div>
             <button onClick={addCommentButton}>Add comment</button>
-            {setAddComment ? (
+            {addComment ? (
                 <>
-                <div>
-                <p>Comment box</p>
-                </div>
+                <form onSubmit ={onSubmit}>
+                <textarea className ="comment-form-textarea" value={text} onChange={(event) =>  setText(event.target.value)}></textarea>
+                <button className="submit-comment">Submit Comment</button>
+                </form>
                 </>
             ) : null}
         </div>
