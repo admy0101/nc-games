@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getReviewComments } from "../utils/api";
 import { useParams } from "react-router-dom";
+import AddComment from "./AddComment";
 
 const Comments = ({ singleReview }) => {
   const [currentComments, setComments] = useState([]);
@@ -50,6 +51,7 @@ const Comments = ({ singleReview }) => {
             </ul>
           </>
         ) : null}
+        <AddComment />
       </div>
     </>
   );
