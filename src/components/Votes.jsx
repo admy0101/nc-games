@@ -15,7 +15,7 @@ const Votes = ({ singleReview, setSingleReview }) => {
   const decreaseClick = (event) => {
     setVoteChange((currentVote) => currentVote - 1);
     increaseDecreaseVotes(singleReview.review_id, -1).catch((err) => {
-      console.dir(err, "this an error");
+      console.dir(err);
     });
     event.currentTarget.disabled = true;
   };
