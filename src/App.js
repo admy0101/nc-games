@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import ReviewCard from "./components/Review-card";
 import Reviews from "./components/Reviews";
 
+
 function App() {
   return (
     <BrowserRouter>

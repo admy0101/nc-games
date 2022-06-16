@@ -30,7 +30,12 @@ export const increaseDecreaseVotes = (review_id, inc_votes) => {
   return reviewsApi
     .patch(`/reviews/${review_id}`, { inc_votes })
     .then(({ data }) => {
-
       return data;
     });
+};
+
+export const getReviewComments = (review_id) => {
+  return reviewsApi.get(`/reviews/${review_id}/comments`).then(( {data} ) => {
+    return data.comments;
+  });
 };

@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getSingleReview } from "../utils/api";
-import { useParams } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import Votes from "./Votes";
+import Comments from "./Comments";
 
 const ReviewCard = () => {
   const { review_id } = useParams();
@@ -13,7 +14,6 @@ const ReviewCard = () => {
   useEffect(() => {
     getSingleReview(review_id)
       .then((data) => {
-        console.log("this is a review request");
         setSingleReview(data);
       })
       .catch((err) => {
@@ -34,7 +34,10 @@ const ReviewCard = () => {
         <p>{singleReview.review_body}</p>
 
         <Votes singleReview={singleReview} />
-        <h4>Comments: {singleReview.comment_count}</h4>
+        
+          <Comments singleReview ={singleReview} />
+         
+        
       </div>
     </>
   );
