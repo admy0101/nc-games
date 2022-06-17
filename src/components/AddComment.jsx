@@ -1,41 +1,53 @@
-import React from 'react';
-import { useState } from 'react';
-import { postReviewComment } from '../utils/api';
+import React from "react";
+import { useState } from "react";
+import { postReviewComment } from "../utils/api";
+import {useNavigate} from 'react-router-dom'
 
-const AddComment = ({singleReview}) => {
-const [text, setText] = useState("")
-const [addComment, setAddComment] = useState(false)
+const AddComment = ({ singleReview }) => {
+  const [text, setText] = useState("");
+  const [addComment, setAddComment] = useState(false);
+  const navigate = useNavigate()
+  
 
-const addCommentButton = () => {
-    if(addComment === false) {
-        setAddComment(true)
-        
-    } if(addComment === true) {
-        setAddComment(false)
-    }  
-}
+  const addCommentButton = () => {
+    if (addComment === false) {
+      setAddComment(true);
+    }
+    if (addComment === true) {
+      setAddComment(false);
+    }
+  };
+  
 
-const onSubmit =(event) => {
+  const handleSubmit = (event) => {
    
+    event.preventDefault();
+    
+    postReviewComment(singleReview.review_id, {
+      username: "tickle122",
+      body: text,
+    });
+    navigate("/submitted")
+   
+  };
 
-    event.preventDefault()
-    postReviewComment(singleReview.review_id, {username: "tickle122", body: text} ) 
-}
-
-
-    return (
-        <div>
-            <button onClick={addCommentButton}>Add comment</button>
-            {addComment ? (
-                <>
-                <form onSubmit ={onSubmit}>
-                <textarea className ="comment-form-textarea" value={text} onChange={(event) =>  setText(event.target.value)}></textarea>
-                <button className="submit-comment">Submit Comment</button>
-                </form>
-                </>
-            ) : null}
-        </div>
-    );
+  return (
+    <div>
+      <button onClick={addCommentButton}>Add comment</button>
+      {addComment ? (
+        <>
+          <form onSubmit={handleSubmit}>
+            <textarea
+              className="comment-form-textarea"
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+            ></textarea>
+            {<button className="submit-comment">Send</button>}
+          </form>
+        </>
+      ) : null}
+    </div>
+  );
 };
 
 export default AddComment;
