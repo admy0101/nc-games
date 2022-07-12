@@ -1,19 +1,22 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getSingleReview } from "../utils/api";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Votes from "./Votes";
 import Comments from "./Comments";
+import { LoadingBar } from "./LoadingBar";
 
 const ReviewCard = () => {
   const { review_id } = useParams();
   const [singleReview, setSingleReview] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const [isError, setError] = useState(null);
 
   useEffect(() => {
     getSingleReview(review_id)
       .then((data) => {
+        setLoading(false);
         setSingleReview(data);
       })
       .catch((err) => {
@@ -24,20 +27,24 @@ const ReviewCard = () => {
   if (isError) {
     return <p className="error">Oh no! Error!</p>;
   }
+  if (loading) {
+    return <LoadingBar />;
+  }
 
   return (
     <>
       <div className="single-review" key={singleReview.review_id}>
+      <img src={singleReview.review_img_url} alt={singleReview.title} />
+        <div className="singleReviewText">
         <h2>{singleReview.title}</h2>
         <h3>{singleReview.designer}</h3>
-        <img src={singleReview.review_img_url} alt={singleReview.title} />
+       
         <p>{singleReview.review_body}</p>
 
         <Votes singleReview={singleReview} />
-        
-          <Comments singleReview ={singleReview} />
-         
-        
+
+        <Comments singleReview={singleReview} />
+      </div>
       </div>
     </>
   );

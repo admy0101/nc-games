@@ -47,3 +47,9 @@ export const postReviewComment = (review_id, body) => {
       return data;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return reviewsApi.delete(`/comments/${comment_id}`).then(({ data }) => {
+    return data;
+  });
+};

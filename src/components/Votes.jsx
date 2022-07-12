@@ -22,8 +22,9 @@ const Votes = ({ singleReview, setSingleReview }) => {
 
   return (
     <div>
-      <h4>Votes: {singleReview.votes + voteChange}</h4>
+      
       <button className="vote-btn upvote" onClick={increaseClick}>↑</button>
+      <h4> {singleReview.votes + voteChange}</h4>
       <button className="vote-btn downvote" onClick={decreaseClick}>↓</button>
     </div>
   );

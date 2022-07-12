@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getReviews } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { LoadingBar } from "./LoadingBar";
 
 const Reviews = () => {
   const { category } = useParams();
@@ -16,7 +17,7 @@ const Reviews = () => {
   }, [category]);
 
   if (loading) {
-    return <div className="loading"></div>;
+    return <LoadingBar />;
   }
 
   return (
@@ -33,9 +34,11 @@ const Reviews = () => {
               key={review.review_id}
             >
               <li className="reviewsList" key={review.review_id}>
-                <h3>{review.title}</h3>
-                <img src={review.review_img_url} alt={review.title} />
-                <h2>Votes: {review.votes}</h2>
+              <img src={review.review_img_url} alt={review.title} />
+              <div className="reviewsListText">
+                <h3 className="review-title">{review.title}</h3>
+                <h3>Votes: {review.votes}</h3>
+                </div>
               </li>
             </Link>
           );

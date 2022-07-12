@@ -3,9 +3,13 @@ import { useState } from "react";
 import { postReviewComment } from "../utils/api";
 import {useNavigate} from 'react-router-dom'
 
+
 const AddComment = ({ singleReview }) => {
   const [text, setText] = useState("");
   const [addComment, setAddComment] = useState(false);
+  
+
+
   const navigate = useNavigate()
   
 
@@ -20,16 +24,20 @@ const AddComment = ({ singleReview }) => {
   
 
   const handleSubmit = (event) => {
-   
-    event.preventDefault();
     
+    event.preventDefault();
     postReviewComment(singleReview.review_id, {
       username: "tickle122",
       body: text,
     });
     navigate("/submitted")
+    
+  
+   
    
   };
+ 
+
 
   return (
     <div>
@@ -38,11 +46,12 @@ const AddComment = ({ singleReview }) => {
         <>
           <form onSubmit={handleSubmit}>
             <textarea
+            placeholder="Write your comment here"
               className="comment-form-textarea"
               value={text}
               onChange={(event) => setText(event.target.value)}
             ></textarea>
-            {<button className="submit-comment">Send</button>}
+            {<button className="submit-comment" disabled ={!text} >Post</button>}
           </form>
         </>
       ) : null}

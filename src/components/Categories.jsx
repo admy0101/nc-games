@@ -2,6 +2,7 @@ import React from "react";
 import { getCategories } from "../utils/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { LoadingBar } from "./LoadingBar";
 
 import { Link } from "react-router-dom";
 
