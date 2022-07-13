@@ -16,6 +16,17 @@ Link here:
 ## Minimum node version
 v17.8.0
 
+## Cloning
+
+
+Follow [this link](https://github.com/admy0101/nc-games) to the github repo hosting the project.
+
+When you are in your desired directory run this command:
+
+```
+git clone REPO_URL_HERE
+```
+
 ## Dependencies
 
 To install all dependencies required for the app to run use the following command:
@@ -26,7 +37,7 @@ Your package.json should now contain the following:
 
 ```
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
+   "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",

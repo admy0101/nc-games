@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Votes from "./Votes";
 import Comments from "./Comments";
 import { LoadingBar } from "./LoadingBar";
+import dayjs from "dayjs";
 
 const ReviewCard = () => {
   const { review_id } = useParams();
@@ -40,11 +41,10 @@ const ReviewCard = () => {
         <h3>{singleReview.designer}</h3>
        
         <p>{singleReview.review_body}</p>
-
+        <p className="posted"> {`Posted: ${dayjs(singleReview.created_at)}`}</p>
+        </div>
         <Votes singleReview={singleReview} />
-
         <Comments singleReview={singleReview} />
-      </div>
       </div>
     </>
   );

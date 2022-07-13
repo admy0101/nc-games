@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 import AddComment from "./AddComment";
 import { deleteComment } from "../utils/api";
 import { useNavigate } from "react-router-dom";
-import { LoadingBar } from "./LoadingBar";
-import image from "../images/icons8-remove-64.png";
 
 const Comments = ({ singleReview }) => {
   const navigate = useNavigate();
@@ -37,6 +35,7 @@ const Comments = ({ singleReview }) => {
       setDeleted(true);
     });
   };
+
   const handleSubmit = () => {
     navigate(0);
   };
@@ -53,7 +52,6 @@ const Comments = ({ singleReview }) => {
   return (
     <>
       <div>
-        {/* <h4>Comments: {singleReview.comment_count}</h4> */}
         <button className="comments-btn" onClick={showCommentClick}>
           {showComments
             ? `Hide Comments`
@@ -66,7 +64,7 @@ const Comments = ({ singleReview }) => {
               {currentComments.map((comment) => {
                 return (
                   <li className="comments-list" key={currentComments.review_id}>
-                    <h3 key={currentComments.review_id}>{comment.body}</h3>
+                    <p key={currentComments.review_id}>{comment.body}</p>
                     <h5 key={currentComments.review_id}>
                       Posted by {comment.author}
                     </h5>
@@ -78,8 +76,7 @@ const Comments = ({ singleReview }) => {
                           handleDelete(event);
                         }}
                       >
-                       Delete
-                       {/* <img src={image} alt="Delete"/> */}
+                        Delete
                       </button>
                     ) : null}
                   </li>

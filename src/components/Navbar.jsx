@@ -2,7 +2,7 @@ import React from "react";
 import Categories from "./Categories";
 import Home from "./Home";
 import SignIn from "./Sign-in";
-import SortBy from "./SortBy";
+
 
 const Navbar = () => {
   return (
