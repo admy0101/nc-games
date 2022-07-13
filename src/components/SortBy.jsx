@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const SortBy = () => {
 
-    const [searchParams, setSearchParams] = useSearchParams()
 
     return (
         <div>

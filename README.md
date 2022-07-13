@@ -2,9 +2,11 @@
 
 This app was built as the front-end project for the House of Games API. It allows users to sort games reviews by category and to comment on and vote for individual reviews.
 
-## Hosted Front-end
+## [Hosted Version of NC Games](https://nc-games-by-admy.netlify.app/ )
 
-Link here: 
+https://nc-games-by-admy.netlify.app/ 
+
+
 
 ## Hosted Back-end and Repo
 
